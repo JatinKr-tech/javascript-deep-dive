@@ -35,7 +35,7 @@ false || console.log("This would show");
 
 //.......................
 
-//And "&&"
+//And "&&", && has higher priority (precedence) than ||
 //"&&" returns first falsy value and returns last truthy value
 
 let hr = 12;
@@ -87,7 +87,7 @@ console.log(!undefined);
 
 
 // alert( null || 2 && 3 || 4 ); //3
-
+/*
 let age = prompt("", "");
 if (!(age >= 14 && age <= 90)) {
     console.log("You are allowed here");
@@ -100,3 +100,45 @@ if (age < 14 || age > 90) {
 } else {
     console.log("You ain't welcome here");
 };
+*/
+
+//I somehow got stuck in this once, lmao:
+/*
+// Runs.
+// The result of -1 || 0 = -1, truthy
+if (-1 || 0) alert( 'first' );
+
+// Doesn't run
+// -1 && 0 = 0, falsy
+if (-1 && 0) alert( 'second' );
+
+// Executes
+// Operator && has a higher precedence than ||
+// so -1 && 1 executes first, giving us the chain:
+// null || -1 && 1  ->  null || 1  ->  1
+if (null || -1 && 1) alert( 'third' );
+ */
+
+//
+
+let user = prompt("", "");
+
+if (user == "Admin") {
+    let password = prompt("","");   
+
+    if (password == "TheMaster") {
+    alert("Welcome!");
+    } else if (password == "" && password == null) {
+    alert("Canceled");
+    } else {
+    alert("Wrong password!");
+    };
+
+} else if (user == "" || user == null) {
+    alert("Canceled");
+} else {
+    alert("I don't know you!!");
+};
+
+
+
