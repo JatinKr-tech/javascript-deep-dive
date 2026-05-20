@@ -36,7 +36,7 @@ false || console.log("This would show");
 //.......................
 
 //And "&&", && has higher priority (precedence) than ||
-//"&&" returns first falsy value and returns last truthy value
+//"&&" returns last truthy value if and only if all the values are truthy, it returns first falsy value if some values are truthy and some are falsy.
 
 let hr = 12;
 let minute = 30;

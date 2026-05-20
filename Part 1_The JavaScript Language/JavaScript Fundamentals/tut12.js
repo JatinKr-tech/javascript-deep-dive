@@ -37,6 +37,14 @@ height = 20;
 console.log((height ?? 100)*(weidth ?? 50)); //returns height*weidth = 200
 console.log(height ?? 100 * weidth ?? 50); //returns value of height.
 
+// ?? woth || and &&
+let x = 1 && 2 ?? 3; // Syntax error
+let x = (1 && 2) ?? 3; // Works
+
+alert(x); // 2
+//note: It’s forbidden to use it with || or && without explicit parentheses "()".
+
+
 //another extra lesson from comments of this chapter.
 
 let value1 = null;
