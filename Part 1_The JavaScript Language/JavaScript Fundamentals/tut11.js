@@ -123,18 +123,18 @@ if (null || -1 && 1) alert( 'third' );
 
 let user = prompt("", "");
 
-if (user == "Admin") {
+if (user === "Admin") {
     let password = prompt("","");   
 
-    if (password == "TheMaster") {
+    if (password === "TheMaster") {
     alert("Welcome!");
-    } else if (password == "" && password == null) {
+    } else if (password === "" && password === null) {
     alert("Canceled");
     } else {
     alert("Wrong password!");
     };
 
-} else if (user == "" || user == null) {
+} else if (user === "" || user === null) {
     alert("Canceled");
 } else {
     alert("I don't know you!!");
