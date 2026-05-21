@@ -133,3 +133,21 @@ function isPrimeNumber (value1, value2, value3) {
 
 console.log(isPrimeNumber(u, v, n));
 
+
+let a = +prompt("Enter a number", "");
+let b = +prompt("power by how much?", "");
+
+function pow (value1, value2) {
+    let answer = 1;
+    for (let i = 0; i < value2; i++){
+        answer *= value1;
+    }
+    return answer;
+
+};
+
+if (b < 1) {
+    console.log("not a valid number to enter here")
+} else {
+    console.log(pow(a, b));
+};
