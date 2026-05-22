@@ -1,0 +1,1 @@
+//Easy, talks aboyt how to transpile your code, how modern features of js should be transpilled for old browser which doesn't support bleeding edge features of js. It encourages to use modern features of js. Refer to docs and read comments too for links.
