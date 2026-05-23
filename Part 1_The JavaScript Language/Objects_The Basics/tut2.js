@@ -54,6 +54,8 @@ user["name"] = "pete"; //only changes user.
 
 //..........................
 
+
+//example of nested data:
 let profile = {
     name : "Agatha",
     age : "35",
@@ -76,24 +78,34 @@ for (let key in profile) {
 console.log(profileClone);
 
 console.log(profileClone === profile); //false, meaning they are seperate objects, changes in one won't affect the other except for Coding object inside them, see below.
-console.log(profileClone.Coding === profile.Coding); //true, meaning they share coding object, changes in eithers coding object will effect others coding object.
+console.log(profileClone.Coding === profile.Coding); //true, meaning they share coding object, changes in eithers coding object will effect others coding object. Meaning it can't copy nested data!!
 
 let profileClone2 = Object.assign({}, profile);
 console.log(profileClone2);
 console.log(profileClone2 === profile); //false, meaning they are seperate objects, changes in one won't affect the other except for Coding object inside them, see below.
-console.log(profileClone2.Coding === profile.Coding); //true, meaning they share coding object, changes in eithers coding object will effect others coding object.
+console.log(profileClone2.Coding === profile.Coding); //true, meaning they share coding object, changes in eithers coding object will effect others coding object. Meaning it can't copy nested data.
 
 // profileClone2.Coding["typescript"] = false; //Changes even in profile.
 
 //So we need a different way to clone!! We need deep cloning, which clones structure as well.
 
+//--
+//{...obj} not in javascript.info, someone wrote in comments.
+
+console.log("\n");
+let profileHasClone = {...profile};
+console.log(profileHasClone);
+console.log(profileHasClone === profile); //false
+console.log(profileHasClone.Coding === profile.Coding); //true, meaning it can't copy nested data.
+
+console.log("\n");
 //StructuredClone()
 
 let profileClone3 = structuredClone(profile);
 
 console.log(profileClone3)
 console.log(profileClone3 === profile); //false, meaning they are seperate objects, changes in one won't affect the other except for Coding object inside them, see below.
-console.log(profileClone3.Coding === profile.Coding); //false, meaning they don't share coding object, changes in one's coding object will not effect other coding object. 
+console.log(profileClone3.Coding === profile.Coding); //false, meaning they don't share coding object, changes in one's coding object will not effect other coding object. it can copy nested data perfectly!! 
 //That's the profit of using structuredClone().
 
 profileClone3.Coding["typescript"] = false; //changes only in profileClone3.
