@@ -1,0 +1,2 @@
+//Garbage Collection
+//read doc and understand some examples, javascript.info doesn't go deep in it. It says you don't need to go deep in it unless needed. It also recommended some docs which go deep in it.
