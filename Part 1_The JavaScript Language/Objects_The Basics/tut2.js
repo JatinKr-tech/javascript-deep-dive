@@ -134,4 +134,4 @@ let objectContainingFunc = {
 // let objectContainingFuncClone = structuredClone(objectContainingFunc); //error
 //To handle such complex cases we may need to use a combination of cloning methods, write custom code or, to not reinvent the wheel, take an existing implementation, for instance _.cloneDeep(obj) from the JavaScript library lodash.
 
-
+//Comparison of cloning methods is in the image : CloneMethodsComparison.png
