@@ -67,5 +67,5 @@ console.log(obj.toString()) //Since there is no special method(function) named t
 console.log(obj.valueOf()) //Since there is no special method(function) named valueof in obj we get //whole object obj
 
 console.log(obj[Symbol.toPrimitive]("string")); //500
-console.log(objTwo[Symbol.toPrimitive]("string")); //error //Since no such special symbol exist (we didn't write it) in objTwo
+// console.log(objTwo[Symbol.toPrimitive]("string")); //error //Since no such special symbol exists (we didn't write it) in objTwo
 
