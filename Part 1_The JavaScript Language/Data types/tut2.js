@@ -138,6 +138,7 @@ console.log(isFinite(15)); //true
 console.log(isFinite("782")); //true
 console.log(isFinite(true)); //true
 console.log(isFinite(null)); //true
+console.log(isFinite("Jatin")); //false
 console.log(isFinite(numInfi)); //false
 console.log(isFinite({})); //false
 console.log(isFinite(undefined)); //false
@@ -151,6 +152,7 @@ console.log(Number.isFinite(15)); //true
 console.log(Number.isFinite("782")); //false
 console.log(Number.isFinite(true)); //false
 console.log(Number.isFinite(null)); //false
+console.log(Number.isFinite("Jatin")); //false
 console.log(Number.isFinite(numInfi)); //false
 console.log(Number.isFinite({})); //false
 console.log(Number.isFinite(undefined)); //false
