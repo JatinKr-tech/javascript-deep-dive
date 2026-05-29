@@ -227,6 +227,9 @@ console.log(Math.random()); //returns a random number between [0,1) meaning it c
 
 console.log("\n");
 
+//'...' Spread operator
+//console.log(Math.max(...[1,2,3,4,5,6,7,8])); //8
+
 //Min Max
 console.log(Math.max(1, 2, -5, 0, 4)); //4
 console.log(Math.max(1, 2, -5, -0, 4)); //4
