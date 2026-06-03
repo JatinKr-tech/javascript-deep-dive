@@ -31,16 +31,58 @@ Mikasa = null; // overwrite the reference
 
 // WeakMap has only the following methods:
 
-// weakMap.set(key, value)
-// weakMap.get(key)
-// weakMap.delete(key)
-// weakMap.has(key)
+// WeakMap.set(key, value)
+// WeakMap.get(key)
+// WeakMap.delete(key)
+// WeakMap.has(key)
 
 
 
 
-//weakMap and weakSet 
+//WeakMap and WeakSet 
 //We can set/add only those keys in weakMap and weakSet which are object{} other wise we get an error. 
+
+//.............................
+
+//Use case : Caching
+//WeakMap is a lot useful in cache
+
+let obj1 = [
+  {"Q1":"capital of India"},
+  {"Q2":"capital of USA"},
+  {"Q3":"capital of Germany"},
+  {"Q4":"capital of UK"},
+  {"Q5":"capital of Japan"},
+];
+
+let cache = new WeakMap();
+cache.set(obj1[0], "Delhi");
+cache.set(obj1[1], "WashingtonDC");
+
+function cacheProcess (question){
+  if (!(cache.has(question))){
+    cache.set(question, "Just added");
+  }
+    return cache.get(question)
+  
+};
+
+console.log(cacheProcess(obj1[0])); //Delhi
+console.log(cacheProcess(obj1[1])); //WashingtonDC
+console.log(cacheProcess(obj1[2])); //New Question!
+console.log(cacheProcess(obj1[2])); //Just added
+
+console.log(cache)
+// obj1 = null; //cache will have no entries
+
+// If we use Map instead of WeakMap, The Data Becomes "Ghosts" (Unreachable)
+// This is the worst part of using a regular Map for this pattern: the data becomes completely useless but still consumes RAM.
+//Caution//
+//don't think about using cache[0], it is not an array with indexes, it is an object with no key named 0.
+
+
+//.................................
+
 
 //tasks
 

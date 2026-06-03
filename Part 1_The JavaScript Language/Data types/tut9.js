@@ -52,3 +52,33 @@ console.log(updatedxyz); //[['banana', 2], ['orange', 4], ['meat', 8]]
 let updatedPrices = Object.fromEntries(updatedxyz);
 console.log(updatedPrices); //{banana: 2, orange: 4, meat: 8}
 
+//tasks
+
+//task1
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+// let salaries = {};
+
+function sumSalaries(salaries){
+    let arr = Object.values(salaries);
+    let sum = 0;
+    for(values of arr){
+        sum += values;
+    }
+    return sum;
+};
+
+let arr1 = Object.values(salaries);
+SalarSum = arr1.reduce((currentSum, item) => currentSum + item, 0);
+
+console.log(SalarSum);
+
+console.log( sumSalaries(salaries) ); // 650
+
+//task2
+
+function count(obj) {return Object.keys(obj).length;};
+console.log(count(salaries));
