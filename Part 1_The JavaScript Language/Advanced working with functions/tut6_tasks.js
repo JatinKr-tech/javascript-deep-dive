@@ -56,14 +56,25 @@ function sum(a) {
     let currentSum = a
     function f(b) {
         currentSum += b;
-        return f;
+        return f; //for recursion so we could loop
     };
     f.valueOf = function(){
         return currentSum;
     }
-    return f;
+    return f; //Closure
 
 }; 
 console.log(+sum(2)(3)); //5
 console.log(+sum(2)(3)(4)); //9
 console.log(+sum(2)(3)(4)(5)(6)(7)(8)); //35
+console.log(+sum(2)(3)(4)(5)(6)(7)(8)()); //NaN
+
+//by using nullish operator: The problem is that it remembers previous result, i will try to fix it someday!
+function sum1(a){
+sum1.current = (sum1.current??0)+a
+sum1.toString= ()=>sum1.current
+return sum1
+};
+
+console.log(+sum1(2)(3)(4)(5)(6)(7)(8)(9)); //44
+// console.log(+sum1(2)(3)(4)(5)(6)(7)(8)(9)); //88
