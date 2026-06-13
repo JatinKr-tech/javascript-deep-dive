@@ -190,12 +190,14 @@ console.log(worker3.slow6(2, 3)); //(2 times 3) is: 6, just cached
 //Borrowing a method
 
 function hash2(){
-    // return [].join.call(arguments); //same
-    return [].join.apply(arguments); //we took all the arguments hash2 is getting with 'arguments', why we did this? because original hash function is getting arguments in an array like object on which we can't apply '.join' method, that's why. It's a trick.
+    
+    return [].join.call(arguments); //How this trick works?
+    // return [].join.apply(arguments); //same, the only difference is that .apply spreads 'arguments' array like obj, actually wrong, it would have done so but arguments is context here (first argument for .apply) so it doesn't. arguments is not spreaded here.
 };
 console.log(hash2(1,2,3,4,5)); //"1,2,3,4,5"
 
-//The trick is called method borrowing.
+//The trick is called method borrowing. How it works?
+//ans: so what we are doing is we are calling join method sitting in array.prototype object's method (Array.prototype.join or with [].join) with .call or .apply and giving it a context, which it's 'this' will refer to.
 
 //....................................
 
