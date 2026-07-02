@@ -1,0 +1,1 @@
+{"name": "JatinKr-tech", "age": 19, "human": true}
