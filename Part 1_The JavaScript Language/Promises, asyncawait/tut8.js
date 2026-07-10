@@ -206,3 +206,21 @@ try {
 // Together they provide a great framework to write asynchronous code that is easy to both read and write.
 
 // With async/await we rarely need to write promise.then/catch, but we still shouldn’t forget that they are based on promises, because sometimes (e.g. in the outermost scope) we have to use these methods. Also Promise.all is nice when we are waiting for many tasks simultaneously.
+
+//explanation of how await works
+
+console.log(1);
+
+async function count(){
+  console.log(2);
+  await Promise.resolve();
+  console.log(3)
+};
+count();
+console.log(4)
+
+//1,2,4,3
+
+//await pauses execution of it's parent async function, waits for execution of microtask queue (Promise waits for its execution in microtask queue as we know) rest of the script executes in call stack as usual. 
+
+//await literally puts everything below it inside it's parent async function into a .then(). (syntax sugar)
