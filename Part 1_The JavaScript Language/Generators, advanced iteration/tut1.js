@@ -176,19 +176,21 @@ console.log(str); //0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx
 
 //yield is a two-way street: it not only returns the result to the outside, but also can pass the value inside the generator.
 
-function* gen() {
-  // Pass a question to the outer code and wait for an answer
-  let result = yield "2 + 2 = ?"; // (*)
+function* gen1() {
+    // Pass a question to the outer code and wait for an answer
+    let result = yield "2 + 2 = ?"; // (*)
 
-  console.log(result);
+    // console.log(result);
+    console.log(result)
 }
 
-let generator4 = gen();
+let generator4 = gen1();
+console.log(generator4)
 
 let question4 = generator4.next().value; // <-- yield returns the value
 console.log(question4); //2 + 2 = ?
 
-generator4.next(4); // --> pass the result into the generator
+generator4.next(4);
 
 //
 
@@ -203,15 +205,13 @@ function* gen2() {
 }
 
 let generator5 = gen2();
-console.log(generator5.next().value)
-console.log(generator5.next(3))
 
 console.log( generator5.next().value ); // "2 + 2 = ?"
-// console.log( generator5.next().value );
+// console.log( generator5.next(4) ); //4 //{value: '3 * 3 = ?', done: false}
 
 console.log( generator5.next(4).value ); // "3 * 3 = ?"
 
-console.log( generator5.next(9).done ); // true
+generator5.next(9) // 9
 
 //.........................
 
@@ -236,6 +236,7 @@ function* gen3() {
 let generator6 = gen3();
 
 let question6 = generator6.next().value;
+console.log(question6) //"2 + 2 = ?"
 
 generator6.throw(new Error("The answer is not found in my database")); // (2)
 
@@ -278,3 +279,41 @@ console.log(g.next());        // { value: undefined, done: true }
 //If we again use generator.return() in a completed generator, it will return that value again
 
 //Often we don’t use it, as most of time we want to get all returning values, but it can be useful when we want to stop generator in a specific condition.
+
+//Tasks
+
+//task1
+
+function* pseudoRandom(seed){
+    let value = seed;
+    while (true) {
+        value = value * 16807 % 2147483647
+        yield value;
+    }
+};
+
+let generator11 = pseudoRandom(1);
+
+console.log(generator11.next().value); // 16807
+console.log(generator11.next().value); // 282475249
+console.log(generator11.next().value); // 1622650073
+
+//In a normal function we could do it this way:
+
+/**
+function pseudoRandom(seed) {
+    let value = seed;
+
+    return function() {
+        value = value * 16807 % 2147483647;
+        return value;
+    }
+}
+
+let generator11 = pseudoRandom(1);
+
+console.log(generator11()); // 16807
+console.log(generator11()); // 282475249
+console.log(generator11()); // 1622650073
+ */
+
