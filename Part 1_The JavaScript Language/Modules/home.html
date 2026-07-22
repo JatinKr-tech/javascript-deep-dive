@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+</head>
+
+<body>
+    <h1>&nbsp;&nbsp;Modules</h1>
+    <script async type="module">
+        //async module is basically standard script which can import stuff like a differ module does and it doesn't block execution of html which a standard/differ module does.
+        console.log(typeof button); //theoratically it should be undefined but this is a bit complex, not as simple, some other day!!
+
+        import { data } from './analytics.js';
+        data.calc();
+
+    </script>
+    <script type="module">
+        console.log(typeof button)
+    </script>
+    <h3>&nbsp;&nbsp;JavaScript.info</h3>
+    <button id="button">Button</button>
+</body>
+<script type="module" src="tut1.js"></script>
+<script type="module" src="test1.js"></script>
+
+
+</html>
